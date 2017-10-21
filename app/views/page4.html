@@ -1,0 +1,213 @@
+<h5 class="title-page" ng-init="vm.selectedTab = 4">Объем и содержание учебной дисциплины</h5>
+<table class="striped">
+    <tbody>
+    <tr></tr>
+    <tr class='text-bold'>
+        <td colspan='5' class='td-no-tblr'></td>
+        <td class="td-bc" style='width: 57px;vertical-align: bottom;'><span class="theme-hours">Лекции</span></td>
+        <td class="td-bc" style='width: 57px;vertical-align: bottom;'><span class="theme-hours">Лабораторные работы</span></td>
+        <td class="td-bc" style='width: 57px;vertical-align: bottom;'><span class="theme-hours">Практические занятия</span></td>
+        <td class="td-bc" style='width: 57px;vertical-align: bottom;'><span class="theme-hours">Самостоятельные работы</span></td>
+    </tr>
+    <tr class='tr-color-all text-bold'>
+        <td colspan='4' class='td-no-tblr'></td>
+        <td class='td-bc text-calc-time'>Всего</td>
+        <td class='td-bc text-hours-all'>{{vm.rpdData.HoursAll[0]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.rpdData.HoursAll[1]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.rpdData.HoursAll[2]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.rpdData.HoursAll[3]}}</td>
+    </tr>
+    <tr class='text-bold'>
+        <td colspan='3' class='td-no-tblr'>
+            <!--<i class="material-icons small td-delete" ng-click='vm.addTheme()'>add_box</i>-->
+            <!--<span class="text-add-vertical">Тема</span>-->
+        </td>
+        <td class="td-no-tblr">Содержание темы</td>
+        <td class='td-bc text-calc-time'>Осталось</td>
+        <td class='td-bc text-hours-all'>{{vm.hoursLast[0]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.hoursLast[1]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.hoursLast[2]}}</td>
+        <td class='td-bc text-hours-all'>{{vm.hoursLast[3]}}</td>
+    </tr>
+    <tr ng-repeat-start="user in vm.rpdData.AmountContent">
+        <td class="td-bc td-delete" ng-click='vm.delTheme($index)'><i class="material-icons small">delete_forever</i></td>
+        <td ng-click="expanded = !expanded" class='td-bc event-expand'>
+            <i class="material-icons" ng-bind="expanded ? 'expand_less' : 'expand_more'"></i>
+        </td>
+        <td ng-bind='user.Name' class='td-bc theme-num'></td>
+        <td class="td-bc" colspan='2'>
+            <div class='input-edit' contentEditable=true
+                 data-text='Введите название темы'
+                 ng-model='user.Description'>
+            </div>
+        </td>
+        <td class="td-bc text-hours-all">{{user.hoursInfo[0]}}</td>
+        <td class="td-bc text-hours-all">{{user.hoursInfo[1]}}</td>
+        <td class="td-bc text-hours-all">{{user.hoursInfo[2]}}</td>
+        <td class="td-bc text-hours-all">{{user.hoursInfo[3]}}</td>
+    </tr>
+    <tr ng-show='expanded' ng-repeat-end>
+        <td class='td-bc theme-content' colspan='9'>
+            <!-- <div>
+              <a class="btn grey lighten-5 black-text" ng-click='vm.addLec($index)'><i class="material-icons left">add_box</i>ЛЕК</a>
+              <a class="btn grey lighten-5 black-text" ng-click='vm.addLab($index)'><i class="material-icons left">add_box</i>ЛР</a>
+              <a class="btn grey lighten-5 black-text" ng-click='vm.addPrac($index)'><i class="material-icons left">add_box</i>ПР</a>
+              <a class="btn grey lighten-5 black-text" ng-click='vm.addSam($index)'><i class="material-icons left">add_box</i>СРС</a>
+            </div> -->
+            <div class="card grey lighten-4">
+                <div class="text-add grey lighten-2">
+                    <i class="material-icons small td-delete" ng-click='vm.addLec($index)'>add_box</i>
+                    <span class="text-add-vertical">Лекции</span>
+                </div>
+                <table ng-show="user.lecs.length > 0 ? true:false">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Содержание лекции</th>
+                        <th>Часы</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="lec in user.lecs">
+                        <td class="td-delete" ng-click='vm.delLec($parent.$index,$index)'><i class="material-icons small">delete_forever</i></td>
+                        <td class="text-lec-name" ng-bind='lec.Name'></td>
+                        <td>
+                            <div class='input-edit' contenteditable=true
+                                 data-text='Введите содержание лекции'
+                                 ng-model='lec.Description'>
+                            </div>
+                        </td>
+                        <td class='text-hours'>
+                            <div class='input-edit' contenteditable
+                                 ng-model='lec.hours'
+                                 ng-keydown='vm.numberOnKeyPress($event)'
+                                 ng-focus='vm.setCaretPosEnd($event)'
+                                 ng-change='vm.recalcHours($parent.$index,0)'>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card grey lighten-4">
+                <div class="text-add grey lighten-2">
+                    <i class="material-icons small td-delete" ng-click='vm.addLab($index)'>add_box</i>
+                    <span class="text-add-vertical">Лабораторные работы</span>
+                </div>
+                <table ng-show="user.labs.length > 0 ? true:false">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Содержание работы</th>
+                        <th>Часы</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="lab in user.labs">
+                        <td class="td-delete" ng-click='vm.delLab($parent.$index,$index)'><i class="material-icons small">delete_forever</i></td>
+                        <td class="text-rab-name" ng-bind='lab.Name'></td>
+                        <td>
+                            <div class='input-edit' contenteditable=true
+                                 data-text='Введите содержание лабораторной работы'
+                                 ng-model='lab.Description'>
+                            </div>
+                        </td>
+                        <td class='text-hours'>
+                            <div class='input-edit' contenteditable
+                                 ng-model='lab.hours'
+                                 ng-keydown='vm.numberOnKeyPress($event)'
+                                 ng-change='vm.recalcHours($parent.$index,1)'>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card grey lighten-4">
+                <div class="text-add grey lighten-2">
+                    <i class="material-icons small td-delete" ng-click='vm.addPrac($index)'>add_box</i>
+                    <span class="text-add-vertical">Практические занятия</span>
+                </div>
+                <table ng-show="user.pracs.length > 0 ? true:false">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Содержание занятия</th>
+                        <th>Часы</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="prac in user.pracs">
+                        <td class="td-delete" ng-click='vm.delPrac($parent.$index,$index)'><i class="material-icons small">delete_forever</i></td>
+                        <td class="text-rab-name" ng-bind='prac.Name'></td>
+                        <td>
+                            <div class='input-edit' contenteditable=true
+                                 data-text='Введите содержание практического занятия'
+                                 ng-model='prac.Description'>
+                            </div>
+                        </td>
+                        <td class='text-hours'>
+                            <div class='input-edit' contenteditable
+                                 ng-model='prac.hours'
+                                 ng-keydown='vm.numberOnKeyPress($event)'
+                                 ng-change='vm.recalcHours($parent.$index,2)'>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card grey lighten-4">
+                <div class="text-add grey lighten-2">
+                    <i class="material-icons small td-delete" ng-click='vm.addSam($index)'>add_box</i>
+                    <span class="text-add-vertical">Самостоятельные работы</span>
+                </div>
+                <table ng-show="user.srs.length > 0 ? true:false">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Содержание работы</th>
+                        <th>Часы</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="sam in user.srs">
+                        <td class="td-delete" ng-click='vm.delSam($parent.$index,$index)'><i class="material-icons small">delete_forever</i></td>
+                        <td>
+                            <div class='input-edit' contenteditable=true data-text='Введите содержание самостоятельной работы'
+                                 ng-model='sam.Content'>
+                            </div>
+                        </td>
+                        <td class='text-hours'>
+                            <div class='input-edit' contenteditable
+                                 ng-model='sam.hours'
+                                 ng-keydown='vm.numberOnKeyPress($event)'
+                                 ng-change='vm.recalcHours($parent.$index,3)'>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr class='tr-color-all text-bold'>
+        <!-- <td colspan='3' class='td-no-left-top'></td> -->
+        <td class="td-no-tblr" colspan='4' style='text-align: center;'>
+            <i class="material-icons small td-delete" ng-click='vm.addTheme()'>add_box</i>
+            <span class="text-add-vertical">Тема</span>
+        </td>
+        <td class='td-bc text-calc-time'>Курсовая работа</td>
+        <td class='td-bc text-hours-all'>-</td>
+        <td class='td-bc text-hours-all'>-</td>
+        <td class='td-bc text-hours-all'>-</td>
+        <td class='td-bc text-hours-all'>{{vm.rpdData.Hours.Kr}}</td>
+    </tr>
+    <tr class='tr-color-all text-bold'>
+        <td colspan='4' class='td-no-tblr'></td>
+        <td class='td-bc text-calc-time'>Экзамен</td>
+        <td colspan='4' class='td-bc text-hours-all'>{{vm.rpdData.Hours.Ekz}}</td>
+    </tr>
+    <tr class='tr-color-all text-bold'>
+        <td colspan='4' class='td-no-tblr'></td>
+        <td class='td-bc text-calc-time'>КСР</td>
+        <td colspan='4' class='td-bc text-hours-all'>{{vm.rpdData.Hours.Ksr}}</td>
+    </tr>
+    </tbody>
+</table>

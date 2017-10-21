@@ -1,0 +1,132 @@
+/**
+*  @author ctola
+*/
+.logo {
+	margin-top: 10px;
+}
+
+.div-center {
+	padding-top: 15%;
+}
+
+#spanRPD {
+	color: #64b5f6;
+}
+
+/* label color */
+.input-field label {
+	color: #5990CA;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #5990CA;
+}
+.input-field input[type=password]:focus + label {
+	color: #5990CA;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #5990CA;
+	box-shadow: 0 1px 0 0 #5990CA;
+}
+.input-field input[type=password]:focus {
+	border-bottom: 1px solid #5990CA;
+	box-shadow: 0 1px 0 0 #5990CA;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+	color: #5990CA;
+}
+
+.collection a.collection-item {
+	cursor: pointer;
+	/*color: #5990CA;*/
+	color: #000000;
+}
+
+.collection .collection-item.active {
+	background-color: #5990CA /*#42a5f5*/; 
+}
+
+.theme-color {
+	background-color: #5990CA;
+}
+.btn {
+	background-color: #5990CA;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.btn:hover{
+	background-color: #5990CA;
+}
+
+label {
+	font-size: 1.0em;
+}
+
+.dropdown-content li > span {
+	color: #5990CA;
+}
+
+.fixed-action-btn {
+	padding-top: 0px;
+}
+
+.fixed-action-btn-left {
+	position: fixed;
+	left: 23px;
+	bottom: 23px;
+	padding-top: 0px;
+	width: 185px;
+}
+
+.fixed-action-btn-left2 {
+	position: fixed;
+	left: 23px;
+	bottom: 76px;
+	padding-top: 0px;
+	width: 185px;
+}
+
+.fixed-action-btn-left3 {
+	position: fixed;
+	left: 23px;
+	bottom: 129px;
+	padding-top: 0px;
+	width: 185px;
+}
+
+.row-bottom-border {
+	border-bottom: 1px solid #9e9e9e;
+}
+
+.formBody {
+	position: fixed;
+	background: hsla(0,0%,0%,.2);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.formContent {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background: white;
+	border: 1px solid;
+	padding: 10px;
+	transform: translate(-50%,-50%);
+	height: auto;
+	width: auto;
+}
+.showForm {
+	display: block;
+}
+.hideForm {
+	display: none;
+}
+.formButtonAdd {
+	float:right;
+}

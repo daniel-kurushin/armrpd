@@ -1,0 +1,147 @@
+<div ng-controller="Page9Controller as pc9" ng-init="pc9.Init()">
+	<h5 class="title-page" ng-init="vm.selectedTab = 9">Описание материально-технической базы</h5>
+	<div class="row">
+		<div class="subtitle-page">Специализированные лаборатории и классы</div>
+		<table class="table-bg-edit">
+			<thead>
+				<tr>
+					<th class="td-bc td-num">№</th>
+					<th class="td-bc">Номер аудитории</th>
+					<th class="td-bc">Название</th>
+					<th class="td-bc">Кафедра</th>
+					<th class="td-bc">Площадь, м<sup>2</sup></th>
+					<th class="td-bc">Количество мест</th>
+					<th class="td-bc td-delete"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="room in pc9.MTB.Classroom track by $index">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc" ng-style='{background: room.Number == ""?"#ffcccc":"white"}'>
+						<select class="td-combox"
+								style="width:100%;"
+								ng-model="pc9.MTB.Classroom[$index]"
+								ng-options="item.Number for item in pc9.listClass"
+								ng-change="pc9.showFormClass($index)">
+						</select>
+					</td>
+					<td class="td-bc">{{room.Name}}</td>
+					<td class="td-bc">{{room.Chair}}</td>
+					<td class="td-bc">{{room.Area}}</td>
+					<td class="td-bc">{{room.CountSeat}}</td>
+					<td class="td-bc td-delete" ng-click='pc9.delClass($index)'><i class="material-icons small">delete_forever</i></td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='7'>
+						<i class="material-icons small td-delete" ng-click='pc9.addClass()'>add_box</i>
+						<span class="text-add-vertical">Лабораторию/класс</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--Форма для добавления новой аудитории-->
+	<div class="formBody showForm" ng-show="pc9.formClassShow" ng-init="pc9.formClassShow=false">
+		<div class="formContent">
+			<div class="subtitle-page">Номер аудитории</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите номер аудитории'
+				 ng-model='pc9.newClass.Number'>
+			</div>
+			<br>
+			<div class="subtitle-page">Название аудитории</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите название аудитории'
+				 ng-model='pc9.newClass.Name'>
+			</div>
+			<br>
+			<div class="subtitle-page">Площадь, м<sup>2</sup></div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите площадь аудитории'
+				 ng-model='pc9.newClass.Area'>
+			</div>
+			<br>
+			<div class="subtitle-page">Количество мест</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите количество мест в аудитории'
+				 ng-model='pc9.newClass.CountSeat'>
+			</div>
+			<br>
+			<button class="btn" ng-click="pc9.addNewClass(0)">Отмена</button>
+			<button class="btn formButtonAdd" ng-click="pc9.addNewClass(1)">Добавить</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="subtitle-page">Основное учебное оборудование</div>
+		<table class="table-bg-edit">
+			<thead>
+			<tr>
+				<th class="td-bc td-num">№</th>
+				<th class="td-bc">Наименование</th>
+				<th class="td-bc">Количество</th>
+				<th class="td-bc">Форма приобретения / владения</th>
+				<th class="td-bc">Номер аудитории</th>
+				<th class="td-bc td-delete"></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="device in pc9.MTB.Devices track by $index">
+				<td class="td-bc td-num">{{$index + 1}}</td>
+				<td class="td-bc" ng-style='{background: device.Name == ""?"#ffcccc":"white"}'>
+					<select class="td-combox"
+							style="width:100%;"
+							ng-model="pc9.MTB.Devices[$index]"
+							ng-options="item.Name for item in pc9.listDevice"
+							ng-change="pc9.showFormDevice($index)">
+					</select>
+				</td>
+				<td class="td-bc">{{device.Count}}</td>
+				<td class="td-bc">{{device.Form}}</td>
+				<td class="td-bc">{{device.NumberClassroom}}</td>
+				<td class="td-bc td-delete" ng-click='pc9.delDevice($index)'><i class="material-icons small">delete_forever</i></td>
+				</td>
+			</tr>
+			<tr class='tr-color-all text-bold'>
+				<td class="td-no-blr td-center" colspan='6'>
+					<i class="material-icons small td-delete" ng-click='pc9.addDevice()'>add_box</i>
+					<span class="text-add-vertical">Оборудование</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--Форма для добавления нового оборудования-->
+	<div class="formBody showForm" ng-show="pc9.formDeviceShow" ng-init="pc9.formDeviceShow=false">
+		<div class="formContent">
+			<div class="subtitle-page">Наименование</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите название оборудования'
+				 ng-model='pc9.newDevice.Name'>
+			</div>
+			<br>
+			<div class="subtitle-page">Количество</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите количество оборудования'
+				 ng-model='pc9.newDevice.Count'>
+			</div>
+			<br>
+			<div class="subtitle-page">Форма приобретения / владения</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите форму приобретения'
+				 ng-model='pc9.newDevice.Form'>
+			</div>
+			<br>
+			<div class="subtitle-page">Номер аудитории</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите номер аудитории'
+				 ng-model='pc9.newDevice.NumberClassroom'>
+			</div>
+			<br>
+			<button class="btn" ng-click="pc9.addNewDevice(0)">Отмена</button>
+			<button class="btn formButtonAdd" ng-click="pc9.addNewDevice(1)">Добавить</button>
+		</div>
+	</div>
+</div>

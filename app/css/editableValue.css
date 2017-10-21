@@ -1,0 +1,198 @@
+.table-bg-noedit {
+  /*background-color: rgb(216, 235, 255);*/
+  background-color: lightgrey;
+}
+.table-bg-edit {
+  background-color: white;
+}
+.span-badge {
+  color: white !important;
+  background: red;
+  border-radius: 7px;
+}
+.title-page {
+  text-align: center;
+  border-bottom: 2px dashed;
+  padding-bottom: 10px;
+}
+.subtitle-page {
+  font-size: 1.2rem;
+  padding: 5px 5px;
+}
+.td-bc {
+  border: 1px solid;
+  padding: 2px 5px;
+}
+.td-title {
+  font-size: 18px;
+  color: black;
+}
+.td-bw {
+  /*background: lightgrey;*/
+  border: 1px solid
+;
+}
+.td-w80px {
+  width: 80px;
+}
+.td-delete {
+  text-align: center;
+  width: 30px;
+  cursor: pointer;
+}
+.td-num {
+  text-align: center;
+  width: 30px;
+}
+.tab-selected {
+  border: 2px solid !important;
+  border-right: 2px solid white !important;
+  margin-right: -2px !important;
+}
+.tab {
+  /*border-top: 1px solid #ddd;*/
+}
+.tab-panel {
+  float: left;
+  margin: 10px 0px 0px 30px;
+  padding: 0px;
+  max-width: 300px;
+}
+.tab-menu {
+  border: unset;
+  overflow: unset;
+  margin: 0px;
+  /*border-top: 1px solid;*/
+  /*border-bottom: 1px solid;*/
+  /*border-left: 1px solid;*/
+}
+.li-no-style {
+  list-style-type: disc;
+  margin-left: 30px;
+}
+.tab-content {
+  overflow: auto;
+  border: 2px solid;
+  padding: 0px 10px 10px 10px;
+  min-height: 450px;
+  margin-right: 10px;
+}
+.theme-content {
+  padding: 15px;
+}
+.theme-num {
+  width: 77px;
+  cursor: default;
+  white-space: nowrap;
+}
+.theme-hours {
+  width: 40px;
+  vertical-align: bottom;
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
+  cursor: default;
+}
+.event-expand {
+  width: 30px;
+  cursor: pointer;
+}
+.event-add {
+  width: 30px;
+  cursor: pointer;
+}
+.text-add-vertical {
+  position: relative;
+  top: -10px;
+}
+.text-add {
+  padding-left: 15px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.text-calc-time {
+  width: 140px;
+  text-align: right;
+}
+td {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+th {
+  text-align: center;
+}
+.tr-hover:hover {
+  background-color: white;
+}
+.td-center {
+  text-align: center;
+}
+.td-no-tblr {
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+.td-no-blr {
+  border-top: 1px solid black;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+.text-lec-name {
+  width: 100px;
+  text-align: center;
+}
+.text-rab-name {
+  width: 200px;
+  text-align: center;
+}
+.text-hours {
+  width: 60px;
+  text-align: center;
+}
+.text-hours-all {
+  text-align: center;
+}
+.text-bold {
+  font-weight: bold;
+}
+.tr-color-all {
+  background: white !important;
+}
+.input-edit {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+.input-edit:hover {
+  background: white !important;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content: attr(data-text);
+    font-weight: bold;
+    display: block;
+}
+.td-combox{
+  text-align-last: center;
+  /*background: transparent;*/
+  display: block;
+  height: auto;
+  width: 100%;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+.menu {
+  border-bottom: unset;
+}
+.logo-rpd {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  width: min-content;
+}
+.logo-btn {
+  font-size: 30px;
+  height: 50px;
+  /*border-radius: 7px;*/
+}

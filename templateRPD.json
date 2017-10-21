@@ -1,0 +1,175 @@
+{
+	"titul": {
+		"Department": 	"Электротехнический факультет",
+		"Chair": 		"Информационные технологии и автоматизированные системы",
+		"Name": 		"Проектирование информационных систем",
+		"EduProgram": 	"академической магистратуры",
+		"Direction": 	"09.04.04 'Программная инженерия'",
+		"Profile": 		"Разработка программно-информационных систем",
+		"Skill": 		"магистр",
+		"EduForm": 		"очная",
+		"Course": 		"2",
+		"Semester": 	"3",
+		"Credit": 		"4",
+		"Hour": 		"144",
+		"EkzSem": 		"1 семестр",
+		"ZachSem": 		"2 семестр",
+		"ProjSem": 		"3 семестр",
+		"WorkSem": 		"4 семестр",
+		"Year": 		"2016"
+	},
+	"TwoPage": {
+		"Docs":{
+			"GovNumber": "1406",
+			"GovDate": "30 октября 2014",
+			"VuzNumber": "",
+			"VuzDate": "28 мая 2015"
+		},
+		"Developers": [
+			{
+				"fio":"Р. А. Файзрахманов",
+				"position": "",
+				"grade": "д-р. экон. наук",
+				"rank": "проф."
+			}
+		],
+		"Protoсol": {
+			"Number": "",
+			"Date": ""
+		},
+		"LeadingChair": {
+			"name": "Информационные технологии и автоматизированные системы",
+			"fio":"Р. А. Файзрахманов",
+			"position": "",
+			"grade": "д-р. экон. наук",
+			"rank": "проф."
+		},
+		"GraduatingChair": {
+			"name": "Информационные технологии и автоматизированные системы",
+			"fio":"Р. А. Файзрахманов",
+			"position": "",
+			"grade": "д-р. экон. наук",
+			"rank": "проф."
+		},
+		"ChairUOP": {
+			"fio":"",
+			"position": "",
+			"grade": "",
+			"rank": ""
+		}
+	},
+	"General": {
+		"Goal": "",
+		"Competences": [
+			{
+				"Name": "",
+				"Description":	""
+			}
+		],
+		"ZUV": {
+			"Know": [
+				{
+					"Competence":	"",
+					"Description":	""
+				}
+			],
+			"Can": [
+				{
+					"Competence":	"",
+					"Description":	""
+				}
+			],
+			"Get": [
+				{
+					"Competence":	"",
+					"Description":	""
+				}
+			]
+		},
+		"Param1": "",
+		"Param2": "",
+		"Param3": ""
+	},
+	"AmountContent": [
+		{
+			"Name":"",
+			"Index": "",
+			"Description":"",
+			"hours": [ "", "", "", "", ""],
+			"lecs": [
+				{
+					"Name":"",
+					"Index": "",
+					"Description": "",
+					"Content": "",
+					"hours": ""
+				}
+			],
+			"labs": [
+				{
+					"Name":"",
+					"Index": "",
+					"Description": "",
+					"Content": "",
+					"hours": ""
+				}
+			],
+			"pracs": [
+				{
+					"Name":"",
+					"Index": "",
+					"Description": "",
+					"Content": "",
+					"hours": ""
+				}
+			],
+			"srs": [
+				{
+					"Content": "",
+					"hours": ""
+				}
+			]
+		}
+	],
+	"UMO": [],
+	"FOS": {
+		"File1": "",
+		"File2": ""
+	},
+	"Literature": {
+		"Main": [],
+		"Add": [],
+		"Educ": [],
+		"Period": []
+	},
+	"Resources": [],
+	"IT": {
+		"Soft":	[
+			{
+				"Name":		"",
+				"Version":	"",
+				"License":	""
+			}
+			],
+		"Catalog": []
+	},
+	"MTB": {
+		"Classroom": [
+			{
+				"Name": "",
+				"Department": "",
+				"Number": "",
+				"Area": "",
+				"CountSeat": ""
+			}
+		],
+		"Devices": [
+			{
+				"Name": "",
+				"Count": "",
+				"Form": "",
+				"NumberClassroom": ""
+			}
+		]
+	}
+}

@@ -1,0 +1,29 @@
+<!--<div class="row">-->
+	<!--<div class="col s12">-->
+			<!--<a class="btn-floating btn-large waves-effect waves-light theme-color right"  ui-sref="main"><i class="material-icons">input</i></a>-->
+	<!--</div>-->
+<!--</div>-->
+<div ng-controller="HomeController as vm">
+	<div class="logo-rpd">
+		<img src="img/rpd-img.jpg">
+		<button class="btn logo-btn" ng-click="vm.LoadListChairs()">
+			НАЧАТЬ
+		</button>
+	</div>
+
+	<!--Форма для выбора кафедры-->
+	<div class="formBody showForm" ng-show="vm.formChairShow" ng-init="vm.formChairShow=false">
+		<div class="formContent">
+			<div class="subtitle-page">Выберите кафедру</div>
+
+			<select class="td-combox"
+					ng-model="selectedChair"
+					ng-options="item.Fullname for item in vm.listChair">
+			</select>
+
+			<br>
+			<button class="btn" ng-click="vm.formChairShow=false">Отмена</button>
+			<button class="btn formButtonAdd" ng-class="selectedChair == undefined?'disabled':''" ng-click="vm.LoadDataChair(selectedChair)" ui-sref="discipline">Продолжить</button>
+		</div>
+	</div>
+</div>

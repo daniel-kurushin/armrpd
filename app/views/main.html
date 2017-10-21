@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="row">
+		<div class="col s2 logo center">
+			<img src="img/logo-rpd.jpg">
+		</div>
+		<div class="col s8 logo">
+			<h5 class="header center">
+				ПЕРМСКИЙ НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ ПОЛИТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ
+			</h5>
+		</div>
+		<div class="col s2 logo center">
+			<img src="img/logo-pstu.png">
+		</div>
+	</div>
+	<div class="row" ng-controller="MainController as vm" ng-init="vm.Init()">
+		<nav class="theme-color">
+			<div class="nav-wrapper">
+				<ul class="left hide-on-med-and-down">
+					<!--<li><a style="font-size: 20px;">РПД "{{vm.rpdData.Titul.Name}}"</a></li>-->
+					<li ng-show="vm.rpdData.Titul.Name === ''?false:true"><a ui-sref="discipline" ng-click="vm.ClearVar('selectedTab', 1)">РПД "{{vm.rpdData.Titul.Name}}"</a></li>
+					<!--<li><a ui-sref="discipline" ng-click="vm.LoadGroup()">Дисциплины</a></li>-->
+					<!--<li><a ui-sref="search">Поиск</a></li>-->
+					<!--<li><a ui-sref="directory">Справочники</a></li>-->
+				</ul>
+				<ul class="right hide-on-med-and-down">
+					<!--<li><a><i class="material-icons">email</i></a></li>-->
+					<li><a>Кафедра "{{vm.chair.Name}}"</a></li>
+					<li><a ui-sref="home" ng-click="vm.CLearAllData()"><i class="material-icons">exit_to_app</i></a></li>
+					<!--<li><a ng-click="vm.onLogout()" ui-sref="home"><i class="material-icons">input</i></a></li>-->
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="row">
+		<div ui-view>
+
+		</div>
+	</div>
+</div>

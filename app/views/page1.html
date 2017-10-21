@@ -1,0 +1,273 @@
+<!-- <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a title="Просмотр" class="btn-floating theme-color"><i class="material-icons">search</i></a></li>
+      <li><a title="Сохранить" class="btn-floating theme-color"><i class="material-icons">save</i></a></li>
+    </ul>
+  </div> -->
+<!--   <div class="row">
+  	<a title="Просмотр" class="btn-floating theme-color"><i class="material-icons">search</i></a>
+  	<a title="Сохранить" class="btn-floating theme-color" onclick="document.getElementById('myform').submit();"><i class="material-icons">save</i></a>
+  </div> -->
+<h5 class="title-page" ng-init="vm.selectedTab = 1">Титульный лист</h5>
+<div class="row" id="titul-v">
+	<form class="">
+		<div class="row">
+			<!--<div class="col s12 input-field">-->
+				<!--<input id="namerpd" type="text" class="active validate" required ng-model="rpdData.Name">-->
+				<!--<label for="namerpd">Название РПД</label>-->
+			<!--</div>-->
+			<table class="table-bg-noedit">
+				<tbody>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Название РПД</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Name}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Факультет</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Department}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Выпускающая кафедра</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Chair}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Программа</td>
+						<td class="td-bc">{{vm.rpdData.Titul.EduProgram}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Направление подготовки</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Direction}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Профиль</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Profile}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Квалификация выпускника</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Skill}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Форма обучения</td>
+						<td class="td-bc">{{vm.rpdData.Titul.EduForm}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Курс</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Course}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Семестр(-ы)</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Semester}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Кредитов по рабочему учебному плану</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Credit}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Часов по рабочему учебному плану</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Hour}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Экзамен</td>
+						<td class="td-bc">{{vm.rpdData.Titul.EkzSem}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Зачет</td>
+						<td class="td-bc">{{vm.rpdData.Titul.ZachSem}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Курсовой проект</td>
+						<td class="td-bc">{{vm.rpdData.Titul.ProjSem}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Курсовая работа</td>
+						<td class="td-bc">{{vm.rpdData.Titul.WorkSem}}</td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Год</td>
+						<td class="td-bc">{{vm.rpdData.Titul.Year}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Программа</label>-->
+				<!--<select class="browser-default" ng-model="rpdData.EduProgram">-->
+					<!--<option value="" disabled selected>Выберите программу</option>-->
+					<!--<option value="1">академической магистратуры</option>-->
+					<!--<option value="2">бакалавриата</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="direction" type="text" class="active validate" required ng-model="rpdData.Direction">-->
+					<!--<label for="direction">Направление подготовки</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="profile" type="text" class="active validate" required ng-model="rpdData.Profile">-->
+					<!--<label for="profile">Профиль</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Квалификация выпускника</label>-->
+				<!--<select class="browser-default" ng-model="rpdData.Skill">-->
+					<!--<option value="" disabled selected>Выберите квалификацию</option>-->
+					<!--<option value="1">магистр</option>-->
+					<!--<option value="2">бакалавр</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Факультет</label>-->
+				<!--<select class="browser-default" ng-model="rpdData.Department">-->
+					<!--<option value="" disabled selected>Выберите факултет</option>-->
+					<!--<option value="1" >ЭТФ (Электротехнический факультет)</option>-->
+					<!--<option value="2" >АДФ (Автодорожный факультет)</option>-->
+					<!--<option value="3" >АЭФ (Аэрокосмический факультет)</option>-->
+					<!--<option value="4" >ГНФ (Горно-нефтяной факультет)</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Выпускающая кафедра</label>-->
+				<!--<select ng-model="rpdData.Chair">-->
+					<!--<option value="" disabled selected>Выберите кафедру</option>-->
+					<!--<option value="1" >АТ (Автоматика и телемеханика)</option>-->
+					<!--<option value="2" >ИТАС (Информационные технологии и автоматизированные системы)</option>-->
+					<!--<option value="3" >КТЭ (Конструирование и технологии в электротехнике)</option>-->
+					<!--<option value="4" >МСА (Микропроцессорные средства автоматизации)</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Форма обучения</label>-->
+				<!--<select ng-model="rpdData.EduForm">-->
+					<!--<option value="" disabled selected>Выберите форму обучения</option>-->
+					<!--<option value="1" >очная</option>-->
+					<!--<option value="2" >заочная</option>-->
+					<!--<option value="3" >очно-заочная</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="credit" type="text" class="active validate" required ng-model="rpdData.Credit">-->
+					<!--<label for="credit">Кредитов по рабочему учебному плану</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="hour" type="text" class="active validate" required ng-model="rpdData.Hour">-->
+					<!--<label for="hour">Часов по рабочему плану</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Экзамен</label>-->
+				<!--<select ng-model="rpdData.EkzSem">-->
+					<!--<option value="" disabled selected>Выберите семестр</option>-->
+					<!--<option value="1">1 семестр</option>-->
+					<!--<option value="2">2 семестр</option>-->
+					<!--<option value="3">3 семестр</option>-->
+					<!--<option value="4">4 семестр</option>-->
+					<!--<option value="5">5 семестр</option>-->
+					<!--<option value="6">6 семестр</option>-->
+					<!--<option value="7">7 семестр</option>-->
+					<!--<option value="8">8 семестр</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Зачет</label>-->
+				<!--<select ng-model="rpdData.ZachSem">-->
+					<!--<option value="" disabled selected>Выберите семестр</option>-->
+					<!--<option value="1">1 семестр</option>-->
+					<!--<option value="2">2 семестр</option>-->
+					<!--<option value="3">3 семестр</option>-->
+					<!--<option value="4">4 семестр</option>-->
+					<!--<option value="5">5 семестр</option>-->
+					<!--<option value="6">6 семестр</option>-->
+					<!--<option value="7">7 семестр</option>-->
+					<!--<option value="8">8 семестр</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Курсовой проект</label>-->
+				<!--<select ng-model="rpdData.ProjSem">-->
+					<!--<option value="" disabled selected>Выберите семестр</option>-->
+					<!--<option value="1">1 семестр</option>-->
+					<!--<option value="2">2 семестр</option>-->
+					<!--<option value="3">3 семестр</option>-->
+					<!--<option value="4">4 семестр</option>-->
+					<!--<option value="5">5 семестр</option>-->
+					<!--<option value="6">6 семестр</option>-->
+					<!--<option value="7">7 семестр</option>-->
+					<!--<option value="8">8 семестр</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12">-->
+				<!--<label>Курсовая работа</label>-->
+				<!--<select ng-model="rpdData.WorkSem">-->
+					<!--<option value="" disabled selected>Выберите семестр</option>-->
+					<!--<option value="1">1 семестр</option>-->
+					<!--<option value="2">2 семестр</option>-->
+					<!--<option value="3">3 семестр</option>-->
+					<!--<option value="4">4 семестр</option>-->
+					<!--<option value="5">5 семестр</option>-->
+					<!--<option value="6">6 семестр</option>-->
+					<!--<option value="7">7 семестр</option>-->
+					<!--<option value="8">8 семестр</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="course" type="text" class="active validate" required ng-model="rpdData.Course">-->
+					<!--<label for="course">Курс</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="semester" type="text" class="active validate" required ng-model="rpdData.Semester">-->
+					<!--<label for="semester">Семестр(ы)</label>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="row">-->
+			<!--<div class="col s12 input-field">-->
+					<!--<input id="year" type="text" class="active validate" required ng-model="rpdData.Year">-->
+					<!--<label for="year">Год</label>-->
+			<!--</div>-->
+		<!--</div>-->
+	</form>
+</div>

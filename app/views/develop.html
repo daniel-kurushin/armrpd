@@ -1,0 +1,81 @@
+<div ng-controller="DevController as vm" ng-init="vm.Init()">
+	<div class="row" style="min-width:1000px;">
+		<div class="tab-panel">
+			<ul class="collection tab-menu">
+				<li>
+					<a ui-sref="page1" class="collection-item"
+					   ng-click="vm.SelectTab(1)"
+					   ng-class="vm.selectedTab == 1?'tab-selected':''">
+						Титульный лист
+					</a>
+				</li>
+				<li>
+					<a ui-sref="page2" class="collection-item"
+					   ng-click="vm.SelectTab(2)"
+					   ng-class="vm.selectedTab == 2?'tab-selected':'tab'">
+						Общие положения
+						<!--<span class="badge span-badge">5</span>-->
+					</a>
+				</li>
+				<li>
+					<a ui-sref="page3" class="collection-item"
+					   ng-click="vm.SelectTab(3)"
+					   ng-class="vm.selectedTab == 3?'tab-selected':'tab'">Место дисциплины в структуре ОП</a>
+				</li>
+				<li>
+					<a ui-sref="page4" class="collection-item"
+					   ng-click="vm.SelectTab(4)"
+					   ng-class="vm.selectedTab == 4?'tab-selected':'tab'">Объем и содержание УД</a>
+				</li>
+				<li>
+					<a ui-sref="page5" class="collection-item"
+					   ng-click="vm.SelectTab(5)"
+					   ng-class="vm.selectedTab == 5?'tab-selected':'tab'">Перечень учебно-методического обеспечения для СРС</a>
+				</li>
+				<li>
+					<a ui-sref="page6" class="collection-item"
+					   ng-click="vm.SelectTab(6)"
+					   ng-class="vm.selectedTab == 6?'tab-selected':'tab'">ФОС</a></li>
+				</li>
+				<li>
+					<a ui-sref="page7" class="collection-item"
+					   ng-click="vm.SelectTab(7)"
+					   ng-class="vm.selectedTab == 7?'tab-selected':'tab'">Список литературы</a>
+				</li>
+				<li>
+					<a ui-sref="page8" class="collection-item"
+					   ng-click="vm.SelectTab(8)"
+					   ng-class="vm.selectedTab == 8?'tab-selected':'tab'">Перечень ИТ</a>
+				</li>
+				<li>
+					<a ui-sref="page9" class="collection-item"
+					   ng-click="vm.SelectTab(9)"
+					   ng-class="vm.selectedTab == 9?'tab-selected':'tab'">Описание МТБ</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tab-content">
+			<div ui-view></div>
+		</div>
+	</div>
+	<button class="fixed-action-btn-left3 btn disabled" type="submit">Отправить на утв.</button>
+	<button class="fixed-action-btn-left2 btn" ng-click='vm.SaveRpd()'>Сохранить</button>
+	<a class="fixed-action-btn-left btn" href="/docx/get">Просмотр</a>
+</div>
+<!--<div class="PDFmodalBody hidePDF">-->
+	<!--<div class="PDFmodalContent">-->
+		<!--&lt;!&ndash; <button class="PDFmodalClose btn">Закрыть</button> &ndash;&gt;-->
+		<!--<a title="Удалить" class="PDFmodalClose btn-floating red"><i class="material-icons">close</i></a>-->
+		<!--<iframe class="PDFmodalFrame" src="../../server/js/auth/output.docx"></iframe>-->
+	<!--</div>-->
+<!--</div>-->
+<!--<script type="text/javascript">-->
+	<!--$('.fixed-action-btn-left').click(function(e) {-->
+		<!--$('.PDFmodalBody').removeClass('hidePDF');-->
+		<!--$('.PDFmodalBody').addClass('showPDF');-->
+	<!--});-->
+	<!--$('.PDFmodalClose').click(function(e) {-->
+		<!--$('.PDFmodalBody').removeClass('showPDF');-->
+		<!--$('.PDFmodalBody').addClass('hidePDF');-->
+	<!--});-->
+<!--</script>-->

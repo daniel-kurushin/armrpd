@@ -1,0 +1,32 @@
+<h5 class="title-page" ng-init="vm.selectedTab = 3">Место дисциплины в структуре образовательной программы</h5>
+<div class="row">
+	<ul>
+		<li class="li-no-style">Дисциплина относится к {{vm.rpdData.General.Param1}} части блока</li>
+		<li class="li-no-style">Дисциплина является {{vm.rpdData.General.Param2}}</li>
+		<li class="li-no-style">Дисциплина относится к {{vm.rpdData.General.Param3}}</li>
+	</ul>
+
+	<div class="subtitle-page">Дисциплины, направленные на формирование компетенций</div>
+	<table class="table-bg-noedit">
+		<thead>
+			<tr>
+				<th class="td-bw">Код</th>
+				<th class="td-bw">Наименование компетенций</th>
+				<th class="td-bw">Предшествующие дисциплины</th>
+				<th class="td-bw">Последующие дисциплины</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="tr-hover" ng-repeat="item in vm.rpdData.General.Competences">
+				<td class="td-bc">{{item.Name}}</td>
+				<td class="td-bc">{{item.Description}}</td>
+				<td class="td-bc">
+					<span ng-repeat="pd in item.PrevDisciplines">{{pd}}</span>
+				</td>
+				<td class="td-bc">
+					<span ng-repeat="nd in item.NextDisciplines">{{nd}}</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

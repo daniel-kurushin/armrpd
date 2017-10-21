@@ -1,0 +1,103 @@
+<div ng-controller="Page8Controller as pc8" ng-init="pc8.Init()">
+	<h5 class="title-page" ng-init="vm.selectedTab = 8">Перечень информационных технологий</h5>
+
+	<!--Таблица с программным обеспечением-->
+	<div class="row">
+		<div class="subtitle-page">Перечень программного обеспечения</div>
+		<table class="table-bg-edit">
+			<thead>
+				<tr>
+					<th class="td-bc td-num">№</th>
+					<th class="td-bc">Наименование</th>
+					<th class="td-bc">Номер лицензии</th>
+					<th class="td-bc">Лицензия</th>
+					<th class="td-bc td-delete"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="soft in pc8.IT.Soft track by $index">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc" ng-style='{background: soft.Name === ""?"#ffcccc":"white"}'>
+						<select class="td-combox"
+								style="width:100%;"
+								ng-model="pc8.IT.Soft[$index]"
+								ng-options="item.Name for item in pc8.listSoft"
+								ng-change="pc8.showFormSoft($index)">
+							<option>Добавить новое программное обеспечение</option>
+						</select>
+					</td>
+					<td class="td-bc">{{soft.LicenseNumber}}</td>
+					<td class="td-bc">{{soft.LicenseType}}</td>
+					<td class="td-bc td-delete" ng-click='pc8.delSoft($index)'><i class="material-icons small">delete_forever</i></td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='4'>
+						<i class="material-icons small td-delete" ng-click='pc8.addSoft()'>add_box</i>
+						<span class="text-add-vertical">Программное обеспечение</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--Форма для добавления нового программного обеспечения-->
+	<div class="formBody showForm" ng-show="pc8.formSoftShow" ng-init="pc8.formSoftShow=false">
+		<div class="formContent">
+			<div class="subtitle-page">Наименование программного обеспечения</div>
+			<div class='input-edit' contentEditable=true
+				 data-text='Введите наименование'
+				 ng-model='pc8.newSoft.Name'>
+			</div>
+			<br>
+			<div class="subtitle-page">Тип лицензия программного обеспечения</div>
+			<select class="td-combox" ng-model="pc8.newSoft.LicenseType">
+				<option>Свободное программное обеспечение</option>
+				<option>Проприетарное программное обеспечение</option>
+			</select>
+			<br>
+			<div class="subtitle-page" ng-show="pc8.newSoft.LicenseType === 'Проприетарное программное обеспечение'?true:false">Номер лицензии</div>
+			<div class='input-edit'
+				 ng-show="pc8.newSoft.LicenseType === 'Проприетарное программное обеспечение'?true:false"
+				 contentEditable=true data-text='Введите наименование'
+				 ng-model='pc8.newSoft.LicenseNumber'>
+			</div>
+			<br>
+			<button class="btn" ng-click="pc8.addNewSoft(0)">Отмена</button>
+			<button class="btn formButtonAdd" ng-click="pc8.addNewSoft(1)">Добавить</button>
+		</div>
+	</div>
+
+	<!--Таблица с ИСС-->
+	<div class="row">
+		<div class="subtitle-page">Перечень информационных справочных систем</div>
+		<table class="table-bg-edit">
+			<thead>
+				<tr>
+					<th class="td-bc td-num">№</th>
+					<th class="td-bc">Название(адрес)</th>
+					<th class="td-bc td-delete"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cat in pc8.IT.Catalog">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc">
+						<div class='input-edit' contentEditable=true
+							 data-text="Введите название ИСС"
+							 ng-model="cat.Name"
+							 ng-style='{background: cat.Name == ""?"#ffcccc":"white"}'>
+						</div>
+					</td>
+					<td class="td-bc td-delete" ng-click='pc8.delCat($index)'><i class="material-icons small">delete_forever</i></td>
+					</td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='3'>
+						<i class="material-icons small td-delete" ng-click='pc8.addCat()'>add_box</i>
+						<span class="text-add-vertical">Информационную СС</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

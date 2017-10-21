@@ -1,0 +1,38 @@
+<h5 class="title-page" ng-init="vm.selectedTab = 5">Перечень учебно-методического обеспечения самостоятельной работы студентов</h5>
+<div class="row">
+	<table class="table-bg-edit">
+		<thead>
+			<tr>
+				<th class="td-bw td-num">№</th>
+				<th class="td-bw">Наименование</th>
+				<th class="td-bw td-delete"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="umo in vm.rpdData.UMO">
+				<td class="td-bc td-num">{{$index + 1}}</td>
+				<td class="td-bc">
+					<div class='input-edit' contentEditable=true
+						 data-text="Введите учебно-методическое издание"
+						 ng-model="umo.Name">
+					</div>
+				</td>
+				<td class="td-bc td-delete" ng-click='vm.delUmo($index)'><i class="material-icons small">delete_forever</i></td>
+			</tr>
+			<tr class='tr-color-all text-bold'>
+				<td class="td-no-blr td-center" colspan='3'>
+					<i class="material-icons small td-delete" ng-click='vm.addUmo()'>add_box</i>
+					<span class="text-add-vertical">Учебно-методическое издание</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<footer>
+		Где искать:
+		<ul>
+			<li>- <a href="http://elib.pstu.ru/" target="_blank">Электронная библиотека ПНИПУ</a></li>
+			<li>- <a href="https://e.lanbook.com/" target="_blank">Электронно-библиотечная система ЛАНЬ</a></li>
+		</ul>
+	</footer>
+</div>

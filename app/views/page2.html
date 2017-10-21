@@ -1,0 +1,115 @@
+<div ng-init="vm.selectedTab = 2">
+	<h5 class="title-page">Цель учебной дисциплины</h5>
+	<div class="row">
+		<div class="subtitle-page">Цель изучения</div>
+		<div class='input-edit' contentEditable=true
+			 data-text='Введите цель изучения'
+			 ng-model='vm.rpdData.General.Goal'>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="subtitle-page">Компетенции дисциплины</div>
+		<table class="table-bg-noedit">
+			<thead>
+				<tr>
+					<th class="td-bw">№</th>
+					<th class="td-bw">Код</th>
+					<th class="td-bw">Расшифровка компетенции</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tr-hover" ng-repeat="c in vm.rpdData.General.Competences">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc">{{c.Name}}</td>
+					<td class="td-bc">{{c.Description}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="row">
+		<div class="subtitle-page">Знать</div>
+		<table class="table-bg-edit">
+			<tbody>
+				<tr ng-repeat="know in vm.rpdData.General.ZUV.Know">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc td-w80px">
+						<select ng-model="know.Competence" class="td-combox">
+							<option ng-repeat="option in vm.rpdData.General.Competences" value="{{option.Name}}">{{option.Name}}</option>
+						</select>
+					</td>
+					<td class="td-bc">
+						<div class='input-edit' contentEditable=true
+							 data-text='Введите знание'
+							 ng-model='know.Description'>
+						</div>
+					</td>
+					<td class="td-delete td-bc" ng-click='vm.delKnow($index)'><i class="material-icons small">delete_forever</i></td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='4'>
+						<i class="material-icons small td-delete" ng-click='vm.addKnow()'>add_box</i>
+						<span class="text-add-vertical">Знание</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="subtitle-page">Уметь</div>
+		<table class="table-bg-edit">
+			<tbody>
+				<tr ng-repeat="can in vm.rpdData.General.ZUV.Can">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc td-w80px">
+						<select ng-model="can.Competence" class="td-combox">
+							<option ng-repeat="option in vm.rpdData.General.Competences" value="{{option.Name}}">{{option.Name}}</option>
+						</select>
+					</td>
+					<td class="td-bc">
+						<div class='input-edit class="material-icons"' contentEditable=true
+							 data-text='Введите умение'
+							 ng-model='can.Description'>
+						</div>
+					</td>
+					<td class="td-delete td-bc" ng-click='vm.delCan($index)'><i class="material-icons small">delete_forever</i></td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='4'>
+						<i class="material-icons small td-delete" ng-click='vm.addCan()'>add_box</i>
+						<span class="text-add-vertical">Умение</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="subtitle-page">Владеть</div>
+		<table class="table-bg-edit">
+			<tbody>
+				<tr ng-repeat="get in vm.rpdData.General.ZUV.Get">
+					<td class="td-bc td-num">{{$index + 1}}</td>
+					<td class="td-bc td-w80px">
+						<select ng-model="get.Competence" class="td-combox">
+							<option ng-repeat="option in vm.rpdData.General.Competences" value="{{option.Name}}">{{option.Name}}</option>
+						</select>
+					</td>
+					<td class="td-bc">
+						<div class='input-edit' contentEditable=true
+							 data-text='Введите владение'
+							 ng-model='get.Description'>
+						</div>
+					</td>
+					<td class="td-delete td-bc" ng-click='vm.delGet($index)'><i class="material-icons small">delete_forever</i></td>
+				</tr>
+				<tr class='tr-color-all text-bold'>
+					<td class="td-no-blr td-center" colspan='4'>
+						<i class="material-icons small td-delete" ng-click='vm.addGet()'>add_box</i>
+						<span class="text-add-vertical">Владение</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row" ng-controller="MainController as vm">
+    <div class="col s12">
+        <div class="card material-table">
+                <span >Справочник "Категория программного обеспечения"</span>
+            <table datatable="ng" dt-options="vm.dtOptions" class="row-border hover" ng-model="getSoftCategory">
+                <thead>
+                    <tr>
+                        <th>Наименование </th>
+                        <th>Описание (дополнительная информация)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="softCat in getSoftCategory">
+                        <td>
+                            <span editable-textarea="softCat.name" e-name="name" e-form="rowform" e-rows="10" e-cols="50">
+                                {{ softCat.name || 'нет наименования' }}
+                            </span>
+                        </td>
+                        <td>
+                            <span editable-textarea="softCat.comment" e-name="comment" e-form="rowform" e-rows="10" e-cols="50">
+                                {{ softCat.comment}}
+                            </span>
+                        </td>
+                        <td>
+                            <form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="saveCategory($data, softCat.id)" class="form-buttons form-inline" shown="inserted == softCat">
+                                <button title="Сохранить" type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary"><i class="material-icons">done</i></button>
+                                <button title="Отменить" type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default"><i class="material-icons">cancel</i></button>
+                            </form>
+                            <div class="buttons" ng-show="!rowform.$visible">
+                                <a title="Редактировать" class="btn-floating blue" ng-click="rowform.$show()"><i class="material-icons">mode_edit</i></a>
+                                <a title="Удалить" class="btn-floating red" ng-click="removeCategory($index, softCat.id)"><i class="material-icons">delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<button type="button" class="btn btn-default" ng-click="addCategory()">Добавить категорию</button>

@@ -1,0 +1,119 @@
+<div ng-controller="DisciplineController as vm"
+	 ng-init="vm.Init()"
+	 style="text-align: -webkit-center;">
+	<div style="width: 1000px;">
+		<table>
+			<tbody>
+			<tr>
+				<td class="text-bold td-bc" style="width: 320px;">Выберите форму обучения</td>
+				<td class="td-bc">
+					<select class="td-combox"
+							ng-model="vm.EduForm"
+							ng-options="item for item in vm.listFormEdu"
+							ng-change="vm.LoadDirections()">
+					</select>
+				</td>
+			</tr>
+			<tr ng-show="vm.EduForm === ''?false:true">
+				<td class="text-bold td-bc">Выберите направление</td>
+				<td class="td-bc">
+					<select class="td-combox"
+							ng-model="vm.Direction"
+							ng-options="v.Name for (k,v) in vm.listDirection"
+							ng-change="vm.LoadProfiles()">
+					</select>
+				</td>
+			</tr>
+			<tr ng-show="vm.Direction.Name == undefined?false:true">
+				<td class="text-bold td-bc">Выберите профиль</td>
+				<td class="td-bc">
+					<select class="td-combox"
+							ng-model="vm.Profile"
+							ng-options="v.Name for (k,v) in vm.listProfile"
+							ng-change="vm.LoadRUPs()">
+					</select>
+				</td>
+			</tr>
+			<tr ng-show="vm.Profile.Name == undefined?false:true">
+				<td class="text-bold td-bc">Выберите рабочую учебную программу</td>
+				<td class="td-bc">
+					<select class="td-combox"
+							ng-model="vm.RUP"
+							ng-options="v.Name for (k,v) in vm.listRUP"
+							ng-change="vm.LoadGroups()">
+					</select>
+				</td>
+			</tr>
+			<tr ng-show="vm.RUP.Name == undefined?false:true">
+				<td class="text-bold td-bc">Выберите группу</td>
+				<td class="td-bc">
+					<select class="td-combox"
+							ng-model="vm.Group"
+							ng-options="v.Name for (k,v) in vm.listGroup"
+							ng-change="vm.LoadDisciplines()">
+					</select>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<table class="striped" ng-show="vm.listDiscipline.length == 0?false:true">
+		<thead>
+			<tr>
+				<th class="td-bc" data-field="id"></th>
+				<th class="td-bc" data-field="name">Наименование дисциплины</th>
+				<th class="td-bc" data-field="name">Состояние</th>
+				<th class="td-bc" data-field="name">Действия</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="d in vm.listDiscipline">
+				<td class="td-bc center">{{$index + 1}}</td>
+				<td class="td-bc">{{d.Name}}</td>
+				<td class="td-bc"></td>
+				<td class="td-center td-bc">
+					<a title="Использовать как шаблон" class="btn-floating orange disabled"><i class="material-icons">library_books</i></a>
+					<a title="Просмотр" class="btn-floating grey disabled"><i class="material-icons">search</i></a>
+					<a title="Скачать" class="btn-floating green disabled" target="_blank"><i class="material-icons">file_download</i></a>
+					<a title="Редактировать" class="btn-floating blue" ui-sref="page1" ng-click="vm.Develop(d)"><i class="material-icons">mode_edit</i></a>
+					<a title="Удалить" class="btn-floating red disabled"><i class="material-icons">delete</i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!--<ul class="collapsible" data-collapsible="accordion">-->
+	<!--<li ng-repeat="g in vm.groups">-->
+		<!--<div class="collapsible-header" ng-click="vm.LoadDiscipline($index)"><i class="material-icons">description</i>{{g.Name}}</div>-->
+		<!--<div class="collapsible-body">-->
+			<!--<table class="striped">-->
+				<!--<thead>-->
+				<!--<tr>-->
+					<!--<th data-field="id">№ п.п.</th>-->
+					<!--<th data-field="name">Профиль</th>-->
+					<!--<th data-field="name">Дата утверждения</th>-->
+					<!--<th data-field="name">Состояние</th>-->
+					<!--<th data-field="name">Действия</th>-->
+				<!--</tr>-->
+				<!--</thead>-->
+				<!--<tbody>-->
+				<!--<tr ng-repeat="d in g.list">-->
+					<!--<td class="center">{{$index + 1}}</td>-->
+					<!--<td>{{d.Name}}</td>-->
+					<!--<td></td>-->
+					<!--<td class="td-center"></td>-->
+					<!--<td class="td-center">-->
+						<!--<a title="Использовать как шаблон" class="btn-floating orange disabled"><i class="material-icons">library_books</i></a>-->
+						<!--<a title="Просмотр" class="btn-floating grey disabled"><i class="material-icons">search</i></a>-->
+						<!--<a title="Скачать" class="btn-floating green disabled" target="_blank"><i class="material-icons">file_download</i></a>-->
+						<!--<a title="Редактировать" class="btn-floating blue" ui-sref="page1"><i class="material-icons">mode_edit</i></a>-->
+						<!--<a title="Удалить" class="btn-floating red disabled"><i class="material-icons">delete</i></a>-->
+					<!--</td>-->
+				<!--</tr>-->
+				<!--</tbody>-->
+			<!--</table>-->
+		<!--</div>-->
+	<!--</li>-->
+<!--</ul>-->
